@@ -4,12 +4,10 @@ using System.Collections.Generic;
 
 // Console.WriteLine("Let's make some insults!");
 // Console.WriteLine("---------------------------");
-namespace Insulter
-{
 
-    public class Insulter
-    {
-        public List<string> insults = new List<string>
+
+
+List<string> insults = new List<string>
 {
     "You look like what morning breath smells like.",
     "If you tried to give me cpr I would probably throw myself back under water",
@@ -19,10 +17,18 @@ namespace Insulter
     "If I were given a million dollars to hang out with you...I would, but then I'd have to spend half of it on therapy",
     "Do you have to be so...like that?"
     };
-    List<Index> position = new List<Index>(); 
+List<int> position = new List<int>();
+Random r = new Random();
 
-    public Random r = new Random();
-    
- 
-    };
+while (position.Count < 3)
+{
+    int candidate = r.Next(0, insults.Count - 1);
+if (!position.Contains(candidate)) {
+    position.Add(candidate);
 }
+}
+foreach(int p in position) {
+    Console.WriteLine(insults[p]);
+}
+
+
